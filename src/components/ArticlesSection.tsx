@@ -2,9 +2,11 @@ import recent from '../json/recent.json'
 import { Article } from './article'
 import { useState } from 'react'
 import { MdCleaningServices } from 'react-icons/md'
+import { NotFoundArticle } from './ArticleNotFound'
 
 export const ArticleSection = () => {
   const [visible, setVisible] = useState(false)
+  const [hasChild, setChild] = useState(false)
   const [filter, setFilter] = useState('')
 
   const handleVisible = () => {
@@ -42,9 +44,10 @@ export const ArticleSection = () => {
       </header>
       <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4'>
         {
-          recent.map(article => article.category.toLowerCase() === filter.toLocaleLowerCase() ? <Article key={article.id} title={article.title} description={article.description} image={article.image} /> : filter === '' ? <Article key={article.id} title={article.title} description={article.description} image={article.image} /> : '')
+          recent.map(article => article.category.toLowerCase() === filter.toLocaleLowerCase() ? <Article key={article.id} title={article.title} description={article.description} image={article.image} /> : filter === '' ? <Article key={article.id} title={article.title} description={article.description} image={article.image} /> : '' )
         }
       </div>
+      <NotFoundArticle text={filter} visibility={hasChild} />
     </section>
   )
 }

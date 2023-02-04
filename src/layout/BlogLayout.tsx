@@ -22,7 +22,7 @@ export const BlogLayout = ({ children, title, description }: BlogProps) => {
       <section className={`min-h-screen w-full pl-4 md:pl-36 pr-4 lg:pr-80 py-8 dark:bg-zinc-900 ${poppins.className}`}>
         <SidebarNav />
         <SidebarRight />
-        <div className='children-container px-1 md:pr-12 dark:bg-zinc-900 dark:text-white text-zinc-900'>
+        <div className='children-container px-1 md:pr-6 md:pl-3 dark:bg-zinc-900 dark:text-white text-zinc-900'>
           {children}
           <Footer />
         </div>

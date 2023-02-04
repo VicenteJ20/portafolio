@@ -8,7 +8,7 @@ export const Carousel = () => {
   SwiperCore.use([Autoplay])
 
   return (
-    <section className='w-100'>
+    <section className='w-100 px-1'>
       <Swiper spaceBetween={20} slidesPerView={1} autoplay={{ delay: 3000 }}>
         {
           slides.map(x => <SwiperSlide key={x.id} ><CarouselSlide id={x.id} title={x.title} subtitle={x.subtitle} linkToArticle='/' imageURL={x.url} /></SwiperSlide>)
