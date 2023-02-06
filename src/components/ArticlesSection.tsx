@@ -2,7 +2,6 @@ import recent from '../json/recent.json'
 import { Article } from './article'
 import { useState } from 'react'
 import { MdCleaningServices } from 'react-icons/md'
-import { NotFoundArticle } from './ArticleNotFound'
 
 export const ArticleSection = () => {
   const [visible, setVisible] = useState(false)
@@ -22,6 +21,11 @@ export const ArticleSection = () => {
   const cleanFilter = () => {
     if (visible) setVisible(!visible)
     setFilter('')
+  }
+
+  const handleChild = () => {
+    setChild(!hasChild)
+    return ''
   }
 
   return (
@@ -47,7 +51,6 @@ export const ArticleSection = () => {
           recent.map(article => article.category.toLowerCase() === filter.toLocaleLowerCase() ? <Article key={article.id} title={article.title} description={article.description} image={article.image} /> : filter === '' ? <Article key={article.id} title={article.title} description={article.description} image={article.image} /> : '' )
         }
       </div>
-      <NotFoundArticle text={filter} visibility={hasChild} />
     </section>
   )
 }
